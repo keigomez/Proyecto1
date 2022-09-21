@@ -107,4 +107,6 @@ string Cliente::tieneCategoria() {
 
 }
 
+Cliente::Cliente() {}
+
 

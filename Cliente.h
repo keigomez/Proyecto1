@@ -19,6 +19,8 @@ private:
     bool adultoMayor;
     int categoria;
 public:
+    Cliente();
+
     Cliente(const string &nombre , int id, bool ingresaConNino, bool embarazada, bool adultoMayor, int categoria );
     virtual ~Cliente();
     const string &getNombre() const;
