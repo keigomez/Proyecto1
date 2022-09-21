@@ -4,7 +4,7 @@
 
 #include "Nodo.h"
 template<class tipo>
-Nodo<tipo>::Nodo() {
+Nodo<tipo>::Nodo(tipo dato, Nodo *left, Nodo *rigth): dato(dato), left(left), right(right) {
 
 }
 
@@ -24,11 +24,26 @@ void Nodo<tipo>::setDato(tipo *dato) {
 }
 
 template<class tipo>
-Nodo<tipo> *Nodo<tipo>::getSiguiente() const {
-    return siguiente;
+Nodo<tipo> *Nodo<tipo>::getLeft() const {
+    return left;
 }
 
 template<class tipo>
-void Nodo<tipo>::setSiguiente(Nodo *siguiente) {
-    Nodo::siguiente = siguiente;
+void Nodo<tipo>::setLeft(Nodo *left) {
+    Nodo::left = left;
 }
+
+template<class tipo>
+Nodo<tipo> *Nodo<tipo>::getRight() const {
+    return right;
+}
+
+template<class tipo>
+void Nodo<tipo>::setRight(Nodo *right) {
+    Nodo::right = right;
+}
+
+
+
+
+

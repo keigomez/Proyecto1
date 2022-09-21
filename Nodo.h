@@ -13,9 +13,10 @@ template<class tipo>
 class Nodo {
 private:
     tipo *dato;
-    Nodo *siguiente;
+    Nodo *left;
+    Nodo *right;
 public:
-    Nodo();
+    Nodo(tipo dato = nullptr, Nodo *left = nullptr, Nodo *right = nullptr);
 
     virtual ~Nodo();
 
@@ -23,9 +24,13 @@ public:
 
     void setDato(tipo *dato);
 
-    Nodo *getSiguiente() const;
+    Nodo *getLeft() const;
 
-    void setSiguiente(Nodo *siguiente);
+    void setLeft(Nodo *left);
+
+    Nodo *getRight() const;
+
+    void setRight(Nodo *right);
 };
 
 
