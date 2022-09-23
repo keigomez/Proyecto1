@@ -4,9 +4,11 @@
 
 #ifndef PROYECTO1_FILEMANAGER_H
 #define PROYECTO1_FILEMANAGER_H
-#include "ArbolBST.h"
+#include "ArbolBST.cpp"
 #include "Cliente.h"
 #include <fstream>
+
+
 
 class FileManager {
 public:

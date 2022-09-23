@@ -24,7 +24,7 @@ ArbolBST<Cliente> FileManager::leer(const string &filename) {
     string nombre, idString, ninoString, embarazadaString, adultoMayorString, categoriaString;
 
     ifstream myReadFile(filename);
-    Cliente cliente;
+    Cliente *cliente;
 
     if (!myReadFile.is_open()) {
         throw invalid_argument("No se pudo abrir el archivo [" + filename + "]");
@@ -44,12 +44,13 @@ ArbolBST<Cliente> FileManager::leer(const string &filename) {
         embarazada = stoi(embarazadaString);
         adultoMayor = stoi(adultoMayorString);
 
-        cliente.setNombre(nombre);
-        cliente.setId(id);
-        cliente.setIngresaConNino(ingresaNino);
-        cliente.setEmbarazada(embarazada);
-        cliente.setAdultoMayor(adultoMayor);
-        cliente.setCategoria(categoria);
+        cliente->setNombre(nombre);
+        cliente->setId(id);
+        cliente->setIngresaConNino(ingresaNino);
+        cliente->setEmbarazada(embarazada);
+        cliente->setAdultoMayor(adultoMayor);
+        cliente->setCategoria(categoria);
+        //cliente = new Cliente(nombre, id, ingresaNino, embarazada, adultoMayor, categoria);
 
         cliente1.insertar(cliente);
     }
