@@ -16,7 +16,7 @@ private:
     Nodo *left;
     Nodo *right;
 public:
-    Nodo(tipo dato = nullptr, Nodo *left = nullptr, Nodo *right = nullptr);
+    Nodo(tipo *dato = nullptr, Nodo *left = nullptr, Nodo *right = nullptr);
 
     virtual ~Nodo();
 

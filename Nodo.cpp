@@ -4,7 +4,7 @@
 
 #include "Nodo.h"
 template<class tipo>
-Nodo<tipo>::Nodo(tipo dato, Nodo *left, Nodo *rigth): dato(dato), left(left), right(right) {
+Nodo<tipo>::Nodo(tipo *dato, Nodo *left, Nodo *rigth): dato(dato), left(left), right(right) {
 
 }
 
