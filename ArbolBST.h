@@ -4,7 +4,7 @@
 
 #ifndef PROYECTO1_ARBOLBST_H
 #define PROYECTO1_ARBOLBST_H
-#include "Nodo.h"
+#include "Nodo.cpp"
 
 template<class tipo>
 class ArbolBST {
@@ -12,20 +12,20 @@ private:
     Nodo<tipo> *raiz;
 
     //se hacen privados por seguridad
-    Nodo<tipo> *insertar(tipo dato,Nodo<tipo>* t);
-    Nodo<tipo> *remover(tipo dato,Nodo<tipo>* t);
-    Nodo<tipo> *buscar(Nodo<tipo>* t, tipo dato);
+    Nodo<tipo> *insertar(tipo *dato, Nodo<tipo>* t);
+    Nodo<tipo> *remover(tipo *dato, Nodo<tipo>* t);
+    Nodo<tipo> *buscar(Nodo<tipo>* t, tipo *dato);
 
 public:
     ArbolBST();
 
     virtual ~ArbolBST();
 
-    void insertar(tipo dato);
+    void insertar(tipo *dato);
 
-    void remover(tipo dato);
+    void remover(tipo *dato);
 
-    void busca(tipo dato);
+    void busca(tipo *dato);
 
 };
 
