@@ -5,6 +5,7 @@
 #ifndef PROYECTO1_ARBOLBST_H
 #define PROYECTO1_ARBOLBST_H
 #include "Nodo.cpp"
+#include "Cliente.h"
 
 template<class tipo>
 class ArbolBST {
@@ -26,6 +27,8 @@ public:
     void remover(tipo *dato);
 
     void busca(tipo *dato);
+
+    Cliente * buscarPorCedula(Nodo<tipo> *t, int ced);
 
 };
 

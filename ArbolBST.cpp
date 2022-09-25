@@ -3,6 +3,8 @@
 //
 
 #include "ArbolBST.h"
+#include "Cliente.h"
+
 template<class tipo>
 Nodo<tipo> *ArbolBST<tipo>::insertar(tipo *dato, Nodo<tipo> *t) {
     //dato = elemento a insertar
@@ -59,5 +61,21 @@ template<class tipo>
 void ArbolBST<tipo>::busca(tipo *dato) {
     raiz = buscar(raiz, dato);
 }
+
+template<class tipo>
+Cliente * ArbolBST<tipo>::buscarPorCedula(Nodo<tipo> *t, int ced) {
+    if(t == nullptr)
+        return nullptr;
+    else if(t->getDato()->getId() == ced){
+        return t->getDato();
+    }
+    else if(ced < t->getDato()->getId()) {
+        return buscarPorCedula(t->getLeft(), ced);
+    }
+    else {
+        return buscarPorCedula(t->getRight(), ced);
+    }
+}
+
 
 
