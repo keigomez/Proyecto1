@@ -11,7 +11,7 @@ class HeapPriorityQueue{
 public:
     int size() const;
     bool empty() const;
-    void insert(const E& e);
+    void insert(E * e);
     const E& min();
     void removeMin();
 private:
@@ -33,7 +33,7 @@ bool HeapPriorityQueue<E, C>::empty() const {
 }
 
 template<typename E, typename C>
-void HeapPriorityQueue<E, C>::insert(const E &e) {
+void HeapPriorityQueue<E, C>::insert(E *e) {
     T.addLast(e); //add e to the heap
     Position v = T.last(); //e's position
     while (!T.isRoot(v)){ //up-heap bubbling

@@ -5,6 +5,8 @@
 #include "Menu.h"
 
 Menu::Menu() {
+    file = new FileManager("DatosBancoUno.txt");
+    file->leer("DatosBancoUno.txt");
 
     menuPrincipal();
 }
@@ -55,5 +57,22 @@ void Menu::menuPrincipal()  {
 }
 
 Menu::~Menu() {
+
+}
+
+void Menu::encolarClientes() {
+
+}
+
+void Menu::encolarUnCliente() {
+
+    int ced;
+    cout << "Digite el numero de cedula: ";
+    cin >> ced;
+    Nodo<Cliente> *cl = new Nodo<Cliente>();
+    Cliente *cliente1;
+    cliente1 = arbol->buscarPorCedula(cl, ced);
+    HeapPriorityQueue<Cliente, EsMenor<Cliente>> p;
+    //p.insert(cliente1);
 
 }

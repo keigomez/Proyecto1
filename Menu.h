@@ -6,14 +6,24 @@
 #define PROYECTO1_MENU_H
 #include <iostream>
 using namespace std;
+#include "FileManager.h"
+#include "HeapPriorityQueue.h"
 
 class Menu {
 private:
+    FileManager* file;
+    ArbolBST<Cliente>* arbol = new ArbolBST<Cliente>();
 
 public:
     Menu();
     void menuPrincipal();
     virtual ~Menu();
+    void encolarClientes();
+    void encolarUnCliente();
+
+
+
+
 
 };
 

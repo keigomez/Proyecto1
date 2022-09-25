@@ -60,7 +60,7 @@ public:
         return pos(size());
     }
 
-    void addLast(const E& e){
+    void addLast( E *e){
         V.push_back(e);
     }
 
