@@ -28,7 +28,9 @@ ArbolBST<Cliente> FileManager::leer(const string &filename) {
     bool ingresaNino, embarazada, adultoMayor;
     string nombre, idString, ninoString, embarazadaString, adultoMayorString, categoriaString;
 
-    ifstream myReadFile(filename);
+    //ifstream myReadFile(filename);
+    ifstream  myReadFile;
+    myReadFile.open(filename, ios::out | ios::app );
 
 
     Cliente *cliente;
