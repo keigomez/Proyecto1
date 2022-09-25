@@ -4,6 +4,11 @@
 
 #include "FileManager.h"
 
+FileManager::FileManager(string filename) : filename(filename) {
+
+}
+
+
 void FileManager::guardar(Cliente &cliente, string &filename) {
     ofstream myFile(filename, ios::app | ios::out);
     myFile<<cliente.getNombre() <<","<<
@@ -24,6 +29,8 @@ ArbolBST<Cliente> FileManager::leer(const string &filename) {
     string nombre, idString, ninoString, embarazadaString, adultoMayorString, categoriaString;
 
     ifstream myReadFile(filename);
+
+
     Cliente *cliente;
 
     if (!myReadFile.is_open()) {
@@ -57,4 +64,5 @@ ArbolBST<Cliente> FileManager::leer(const string &filename) {
     myReadFile.close();
     return cliente1;
 }
+
 

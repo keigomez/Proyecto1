@@ -11,7 +11,11 @@
 
 
 class FileManager {
+private:
+    string filename;
 public:
+    FileManager(string filename);
+
     static void guardar(Cliente& cliente, string& filename);
 
     static ArbolBST<Cliente>leer(const string& filename);
