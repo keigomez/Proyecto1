@@ -78,24 +78,87 @@ Cliente * ArbolBST<tipo>::buscarPorCedula(Nodo<tipo> *t, int ced) {
 }
 
 template<class tipo>
-void ArbolBST<tipo>::readFile(Nodo<tipo> *t, ifstream &file) {
+void ArbolBST<tipo>::readFile(Nodo<tipo> *t, string &file) {
 
-    if (!file.is_open()) {
+    ifstream myFile(file);
+    if (!myFile.is_open()) {
         throw invalid_argument("Could not open the file ");
     }
-    while(!file.eof()){
+    while(!myFile.eof()){
         Nodo<tipo> *nuevo = new Nodo<tipo>;
         insertar(t->getDato(), nuevo);
     }
-    file.close();
+    myFile.close();
 }
 
 template<class tipo>
-void ArbolBST<tipo>::saveFile(Nodo<tipo>*t, ofstream &file) {
+void ArbolBST<tipo>::saveFile(Nodo<tipo>*t, string &file) {
+    ofstream myFile(file, ios::app | ios::out);
     if(t!=NULL){
         saveFile(t->getLeft(), file);
-        file<<t->getDato()<<",";
+        myFile<<t->getDato()<<",";
         saveFile(t->getRight(), file);
     }
 }
+
+template<class tipo>
+void ArbolBST<tipo>::inorder(Nodo<tipo>*t) {
+    if(t == nullptr)
+        return;
+    inorder(t->getLeft());
+    cout<<t->getDato()<<" ";
+    inorder(t->getRight());
+}
+
+template<class tipo>
+void ArbolBST<tipo>::display() {
+    inorder(raiz);
+    cout<<endl;
+}
+
+template<class tipo>
+void ArbolBST<tipo>::preorder(Nodo<tipo> *t) {
+    if(t == nullptr)
+        return;
+    cout<<t->getDato()<<" ";
+    preorder(t->getLeft());
+    preorder(t->getRight());
+}
+
+template<class tipo>
+void ArbolBST<tipo>::postorder(Nodo<tipo> *t) {
+    if(t == nullptr)
+        return;
+    preorder(t->getLeft());
+    preorder(t->getRight());
+    cout<<t->getDato()<<" ";
+}
+
+template<class tipo>
+Nodo<tipo> *ArbolBST<tipo>::findMax(Nodo<tipo> *t) {
+    if(t == nullptr)
+        return nullptr;
+    else if(t->getRight() == nullptr)
+        return t;
+    else
+        return findMin(t->getRight());
+}
+
+template<class tipo>
+Nodo<tipo> *ArbolBST<tipo>::findMin(Nodo<tipo> *t) {
+    //irse lo mas a la izq
+    if(t == nullptr)
+        return nullptr;
+    else if(t->getLeft() == nullptr)
+        return t;
+    else
+        return findMin(t->getLeft());
+}
+
+template<class tipo>
+Nodo<tipo> *ArbolBST<tipo>::getRaiz() const {
+    return raiz;
+}
+
+
 

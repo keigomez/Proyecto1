@@ -5,24 +5,20 @@
 #ifndef PROYECTO1_HEAPPRIORITYQUEUE_H
 #define PROYECTO1_HEAPPRIORITYQUEUE_H
 #include "VectorCompleteTree.h"
+#include "ArbolBST.h"
 
 template<typename E, typename C>
 class HeapPriorityQueue{
 public:
-    int size() const;
-    bool empty() const;
     void insert(E * e);
     const E& min();
-    void removeMin();
 private:
-    VectorCompleteTree<E> T;
+    ArbolBST<E> A;
     C isLess; //comparador si es menor
 
-    //acceso directo a la pos del arbol
-    typedef typename VectorCompleteTree<E> :: Position Position;
 };
 
-template<typename E, typename C>
+/*template<typename E, typename C>
 int HeapPriorityQueue<E, C>::size() const {
     return T.size();
 }
@@ -30,7 +26,7 @@ int HeapPriorityQueue<E, C>::size() const {
 template<typename E, typename C>
 bool HeapPriorityQueue<E, C>::empty() const {
     return size() == 0;
-}
+}*/
 
 template<typename E, typename C>
 void HeapPriorityQueue<E, C>::insert(E *e) {
@@ -46,10 +42,10 @@ void HeapPriorityQueue<E, C>::insert(E *e) {
 
 template<typename E, typename C>
 const E &HeapPriorityQueue<E, C>::min() {
-    return *(T.root());
+    return *(A.getRaiz());
 }
 
-template<typename E, typename C>
+/*template<typename E, typename C>
 void HeapPriorityQueue<E, C>::removeMin() {
     if(size() == 1)// only one node?
         T.removeLast();
@@ -68,7 +64,7 @@ void HeapPriorityQueue<E, C>::removeMin() {
 
         }
     }
-}
+}*/
 
 template<typename E>
 class EsMenor{ //comparador abajo a arriba

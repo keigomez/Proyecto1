@@ -6,6 +6,9 @@
 #define PROYECTO1_ARBOLBST_H
 #include "Nodo.cpp"
 #include "Cliente.h"
+template<class tipo>
+class iterador;
+
 
 template<class tipo>
 class ArbolBST {
@@ -18,6 +21,9 @@ private:
     Nodo<tipo> *buscar(Nodo<tipo>* t, tipo *dato);
 
 public:
+
+    Nodo<tipo> *getRaiz() const;
+
     ArbolBST();
 
     virtual ~ArbolBST();
@@ -30,13 +36,52 @@ public:
 
     Cliente * buscarPorCedula(Nodo<tipo> *t, int ced);
 
-    void readFile(Nodo<tipo>*t, ifstream &file);
+    void readFile(Nodo<tipo>*t, string &file);
 
-    void saveFile(Nodo<tipo>*t,ofstream &file );
+    void saveFile(Nodo<tipo>*t,string &file );
+
+    void inorder(Nodo<tipo>*t);
+
+    void preorder(Nodo<tipo>*t);
+
+    void postorder(Nodo<tipo>*t);
+
+    Nodo<tipo>* findMin(Nodo<tipo>*t);
+    Nodo<tipo>* findMax(Nodo<tipo>*t);
+
+    void display();
 
 };
 
 
+template<class tipo>
+class iterador{
+public:
+    iterador(Nodo<tipo>*);
+
+    virtual bool masElementos() const;
+    virtual int proximoElemento();
+
+private:
+    Nodo<tipo>* cursor;
+};
+
+template<class tipo>
+bool iterador<tipo>::masElementos() const {
+    return (cursor != NULL);
+}
+
+template<class tipo>
+iterador<tipo>::iterador(Nodo<tipo> *primero):cursor(primero) {
+}
+
+template<class tipo>
+int iterador<tipo>::proximoElemento() {
+    tipo dato = cursor->getDato();
+    cursor = cursor->getLeft();
+    cursor = cursor->getRight();
+    return dato;
+}
 
 
 #endif //PROYECTO1_ARBOLBST_H
