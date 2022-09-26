@@ -77,5 +77,25 @@ Cliente * ArbolBST<tipo>::buscarPorCedula(Nodo<tipo> *t, int ced) {
     }
 }
 
+template<class tipo>
+void ArbolBST<tipo>::readFile(Nodo<tipo> *t, ifstream &file) {
 
+    if (!file.is_open()) {
+        throw invalid_argument("Could not open the file ");
+    }
+    while(!file.eof()){
+        Nodo<tipo> *nuevo = new Nodo<tipo>;
+        insertar(t->getDato(), nuevo);
+    }
+    file.close();
+}
+
+template<class tipo>
+void ArbolBST<tipo>::saveFile(Nodo<tipo>*t, ofstream &file) {
+    if(t!=NULL){
+        saveFile(t->getLeft(), file);
+        file<<t->getDato()<<",";
+        saveFile(t->getRight(), file);
+    }
+}
 

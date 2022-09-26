@@ -30,6 +30,10 @@ public:
 
     Cliente * buscarPorCedula(Nodo<tipo> *t, int ced);
 
+    void readFile(Nodo<tipo>*t, ifstream &file);
+
+    void saveFile(Nodo<tipo>*t,ofstream &file );
+
 };
 
 
